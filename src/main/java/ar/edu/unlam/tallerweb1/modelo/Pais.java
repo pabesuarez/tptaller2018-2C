@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String nombrePais;
 	private Integer habitantes;
 	private String idioma;
 	@ManyToOne
@@ -50,6 +52,12 @@ public class Pais {
 	}
 	public void setCapital(Ciudad capital) {
 		this.capital = capital;
+	}
+	public String getNombrePais() {
+		return nombrePais;
+	}
+	public void setNombrePais(String nombrePais) {
+		this.nombrePais = nombrePais;
 	}
 	
 	
