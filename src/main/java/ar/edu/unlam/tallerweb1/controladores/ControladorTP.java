@@ -24,7 +24,14 @@ public class ControladorTP {
 		return new ModelAndView("mostrar", modelo);
 	}
 	
-	// TODO : Pasar a minuscula
+	// Pasar a minuscula
+	@RequestMapping("/pasar-a-minuscula/{cadena}")
+	public ModelAndView pasarAMinuscula(@PathVariable String cadena){
+		ModelMap modelo = new ModelMap();
+		modelo.put("cadena", cadena.toLowerCase());
+		return new ModelAndView("mostrar", modelo);
+	}
+	
 	
 	@RequestMapping("/invertir-orden/{cadena}")
 	public ModelAndView invertirOrden(@PathVariable String cadena) {
@@ -33,7 +40,13 @@ public class ControladorTP {
 		return new ModelAndView("mostrar", modelo);
 	}
 
-	// TODO : Cantidad de caracteres
+	//  Cantidad de caracteres
+	@RequestMapping("/contar-caracteres/{cadena}")
+	public ModelAndView contarCarateres(@PathVariable String cadena){
+		ModelMap modelo = new ModelMap();
+		modelo.put("cadena", cadena.length());
+		return new ModelAndView("mostrar", modelo);
+	}
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String inicio() {
