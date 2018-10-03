@@ -40,7 +40,7 @@ public class ControladorTP {
 	}
 
 	// TODO : Cantidad de caracteres
-	@RequestMapping("/contar-caracteres/{cadena}")
+	@RequestMapping("/cantidad-caracteres/{cadena}")
 	public ModelAndView contarCarateres(@PathVariable String cadena){
 		ModelMap modelo = new ModelMap();
 		modelo.put("cadena", cadena.length());

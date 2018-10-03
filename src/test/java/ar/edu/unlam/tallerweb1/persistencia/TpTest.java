@@ -76,14 +76,19 @@ public class TpTest extends SpringTest{
  		elPais4.setContinente(elContinente4);
  		
  		//guardos los paises
+ 		getSession().save(elContinente1);
+ 		getSession().save(elContinente2);
+ 		getSession().save(elContinente3);
+ 		getSession().save(elContinente4);
  		getSession().save(elPais1);
  		getSession().save(elPais2);
  		getSession().save(elPais3);
  		getSession().save(elPais4);
+
  		
  		List<Pais> paises = getSession().createCriteria(Pais.class)
  										.createAlias("continente","continenteBuscado")
- 										.add(Restrictions.eq("continenteBuscado.nombreContinente", "Europa"))
+ 										.add(Restrictions.eq("continenteBuscado.nombre", "Europa"))
  										.list();
  		
  		assertThat(paises.size()).isEqualTo(1);
@@ -160,6 +165,10 @@ public class TpTest extends SpringTest{
   		ciudad3.setUbicacion(ubicacion3);
   		ciudad4.setUbicacion(ubicacion4);
   		
+  		getSession().save(ubicacion1);
+  		getSession().save(ubicacion2);
+  		getSession().save(ubicacion3);
+  		getSession().save(ubicacion4);
   		getSession().save(ciudad1);
   		getSession().save(ciudad2);
   		getSession().save(ciudad3);
